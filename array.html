@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Array</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	
+</body>
+</html>
+
+<script>
+/*Mảng*/
+//chuyển mảng thành string : tostring (có dấu phẩy)
+//chuyển mảng thành string thay thế bằng kí tự khác : join('-')
+//Pop : xóa phần tử ở cuối mảng và trả lại phần tử vừa xóa
+//Push : thêm phần tử vào cuối mảng
+//Shift : Xóa đi phần tử đầu mảng và trả về phần tử vừa xóa
+//Unshift : thêm phần tử vào đầu mảng 
+//splice : Xóa phần tử bất kỳ spice(star,count); splice(1,0,'ADD')->dùng splice để thêm mới phần tử vào trước vị trí 1,Có thể dùng splice để thay thể bằng cách thay 0 thành index trong mảng
+//concat : nối mảng array.concat(array1)
+//slice : cắt một hoặc nhiều phần tử
+//forEach : loop array
+//every : kiểm tra tất cả phần tử thuộc mảng này có thỏa mãn điều kiện hay không
+//some : giống every nhưng chỉ cần 1 đúng là return true
+//find : tìm kiếm nhưng chỉ trả ra kết quả đầu tiên
+//filter : Filter nhận các đối số giống như map (value,index,array) và hoạt động rất giống nhau . Sự khác biệt duy nhất là callback cần trả về true hoặc false , nếu nó là true mảng không thay đổi nếu là false phần tử đó sẽ được lọc ra khỏi mảng ban đầu . => tạo ra mảng mới và trả về nhưng phần tử có điều kiện check true
+
+//----------------------------------------------------------------------------------------
+/*Array map*/ 
+//tạo một mảng mới chứa các object muốn sửa đổi / thêm các thuộc tính của từng đối tượng
+var courses = [
+
+{
+	id:1,
+	name:"HTML",
+	coin:10
+},
+{
+	id:2,
+	name:"CSS",
+	coin:29
+},
+{
+	id:3,
+	name:"JS",
+	coin:0
+},
+{
+	id:4,
+	name:"PHP",
+	coin:40
+},
+{
+	id:5,
+	name:"SQL",
+	coin:10
+},
+{
+	id:6,
+	name:"Laravel",
+	coin:80
+},
+
+];
+
+
+//
+var newCourses = courses.map((value,index,array) => {
+	return{
+		id:value.id,
+		name: "Khóa học : "+value.name,
+		coin:value.coin,
+		coinText: "Giá : "+value.coin,
+	};
+});
+
+console.log(newCourses);
+
+//--------------------------------------
+// reduce nhận vào 1 mảng và tính toán thành một giá trị duy nhất ,Nó cũng khá giống với map và filter nhưng hơi khác ở đối số callback . Callback bây giờ nhận bộ tích luỹ ( nó tích luỹ tất cả các giá trị trả về . Giá trị của nó là sự tích luỹ của các tích luỹ trả về trước đó ) , giá trị hiện tại , index hiện tại và cuối cùng là toàn bộ mảng
+//Array reduce
+var totalCoin = courses.reduce(function(total,currValue,currIndex,array){
+	return total + currValue.coin;
+},0); // 0 là giá trị khởi tạo ban đầu của total
+
+console.log(totalCoin);
+
+/*String,Array includes*/ //check tồn tại 1 chuỗi trong chuỗi hoặc phần tử trong mảng
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Event Listener</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	
+	<button id="btn">CLick me</button>
+
+</body>
+<script>
+	//Event 
+	/*
+	-Xử lý nhiều việc khi xảy ra 1 event
+	-Lắng nghe,hủy bỏ lắng nghe
+	*/
+	var btn = document.getElementById('btn');
+	console.log(btn);
+
+	//mỗi function là 1 listener
+	function viec1() {
+		console.log('Viec 1');
+	}
+
+	function viec2() {
+		console.log('Viec 2');
+	}
+
+	//thực hiện nhiều việc khi xảy ra event
+	btn.addEventListener('click', viec1);
+	btn.addEventListener('click', viec2);
+
+	//hủy lắng nghe
+	setTimeout(() => {
+		btn.removeEventListener('click', viec1);
+	},3000);
+	
+</script>
+</html>
