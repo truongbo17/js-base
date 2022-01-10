@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Promise</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+
+
+
+	<script>
+		// 3-trạng thái
+		// 1.không resolve,reject sẽ ở pending
+		// 2. fullfiled -> resolve();
+		// 3. reject -> reject();
+		var promise = new Promise(
+			//excutor : function sẽ được thực thi khi gọi tới promise này
+			function(resolve, reject){
+				//logic
+				//thành công : resolve
+				//thất bại : reject
+
+				//fake call api
+				resolve([
+						{
+							id:1,
+							name:"javasript"
+						}
+					]);
+			}
+		);
+
+		promise
+			.then(function(course){
+				console.log(course);
+			})
+			.catch(function(){
+				console.log('Fail !');
+			})
+			.finally(function(){
+				console.log('Done !');
+			})
+
+
+		//--------------------------------------------------------------------
+		/*
+			sync - ĐỒng bộ	: chạy theo thứ tự lần lượt
+			async - bất đồng bộ : 
+		*/
+		//--------------------------------------------------------------------
+	</script>
+</body>
+</html>
